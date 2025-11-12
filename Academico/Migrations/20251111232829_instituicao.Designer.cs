@@ -3,6 +3,7 @@ using Academico.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Academico.Migrations
 {
     [DbContext(typeof(AcademicoContext))]
-    partial class AcademicoContextModelSnapshot : ModelSnapshot
+    [Migration("20251111232829_instituicao")]
+    partial class instituicao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,9 +72,6 @@ namespace Academico.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("InstituicaoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -82,41 +82,7 @@ namespace Academico.Migrations
 
                     b.HasKey("DepartamentoId");
 
-                    b.HasIndex("InstituicaoId");
-
                     b.ToTable("Departamentos");
-                });
-
-            modelBuilder.Entity("Academico.Models.Instituicao", b =>
-                {
-                    b.Property<int>("InstituicaoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InstituicaoId"));
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("InstituicaoId");
-
-                    b.ToTable("Instituicao");
-                });
-
-            modelBuilder.Entity("Academico.Models.Departamento", b =>
-                {
-                    b.HasOne("Academico.Models.Instituicao", "InstituicaoOrigem")
-                        .WithMany()
-                        .HasForeignKey("InstituicaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("InstituicaoOrigem");
                 });
 #pragma warning restore 612, 618
         }

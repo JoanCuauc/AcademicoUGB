@@ -2,6 +2,8 @@
 {
     public class Instituicao
     {
-        public int InstituiçãoId { get; set; }
+        public int InstituicaoId { get; set; }
+        public string Nome { get; set; }
+        public string Telefone { get; set; }
     }
 }

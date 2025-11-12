@@ -7,6 +7,9 @@
         public string Telefone { get; set;}
         public string Cep { get; set; }
         public string Email { get; set; }
+        public int InstituicaoId { get; set; }
+
+        public Instituicao? InstituicaoOrigem { get; set; }
 
     }
 }

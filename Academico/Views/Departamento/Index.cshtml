@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Academico.Models.Departamento>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Departamentos";
 }
 
 <h1>Index</h1>
@@ -24,6 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstituicaoOrigem)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,6 +44,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstituicaoOrigem.InstituicaoId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.DepartamentoId">Edit</a> |
