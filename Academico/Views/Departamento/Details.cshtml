@@ -1,7 +1,7 @@
 ﻿@model Academico.Models.Departamento
 
 @{
-    ViewData["Title"] = "Detalhes";
+    ViewData["Title"] = "Details";
 }
 
 <h1>Details</h1>
@@ -39,6 +39,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.InstituicaoOrigem.InstituicaoId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomeCoordenador)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeCoordenador)
         </dd>
     </dl>
 </div>

@@ -57,7 +57,7 @@ namespace Academico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DepartamentoId,Nome,Telefone,Cep,Email,InstituicaoId")] Departamento departamento)
+        public async Task<IActionResult> Create([Bind("DepartamentoId,Nome,Telefone,Cep,Email,InstituicaoId,NomeCoordenador")] Departamento departamento)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Academico.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DepartamentoId,Nome,Telefone,Cep,Email,InstituicaoId")] Departamento departamento)
+        public async Task<IActionResult> Edit(int id, [Bind("DepartamentoId,Nome,Telefone,Cep,Email,InstituicaoId,NomeCoordenador")] Departamento departamento)
         {
             if (id != departamento.DepartamentoId)
             {
